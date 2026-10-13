@@ -1,163 +1,1211 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info Docente - La app para el profesorado</title>
-    <meta name="description" content="InfoDocente es la plataforma integral diseñada por y para docentes, profesores e interinos que buscan optimizar su día a día.">
-    <!-- Smart App Banner para iOS -->
-    <meta name="apple-itunes-app" content="app-id=6795630289">
-    
-    <!-- Tailwind CSS (CDN para no necesitar archivos extra) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configuración de colores basada en tu app -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#020731', /* --ion-color-primary */
-                        secondary: '#3c4a9a', /* --ion-color-secondary */
-                        tertiary: '#6e7dff', /* --ion-color-tertiary */
-                        success: '#b3e8c1', /* --ion-color-success */
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Info Docente - La plataforma integral para docentes e interinos</title>
+    <meta
+      name="description"
+      content="Gestiona convocatorias de bolsa, cálculo de vida laboral y tiempo de servicio, comparte coche con otros profesores y encuentra permutas de destino en una sola app."
+    />
+    <meta
+      name="keywords"
+      content="Info Docente, SIPRI, interinos, oposiciones docentes, bolsa educacion, permutas docentes, compartir coche profesores, vida laboral docente"
+    />
 
-    <!-- Navegación -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-3">
-                    <!-- Icono de la app -->
-                    <img class="w-12 h-12 rounded-xl shadow-md" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/fb/b5/18fbb552-6daa-7490-7af5-ad4a48ce1f2c/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/200x200bb.png" alt="Logo Info Docente">
-                    <span class="font-bold text-xl text-primary">Info Docente</span>
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-600 hover:text-primary font-medium transition-colors">Funcionalidades</a>
-                    <a href="privacy.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Privacidad</a>
-                    <a href="terms.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Términos</a>
-                    <a href="legal.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Aviso Legal</a>
-                </nav>
+    <!-- Smart App Banner para iOS -->
+    <meta name="apple-itunes-app" content="app-id=6795630289" />
+
+    <!-- Open Graph / Meta Compartir -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Info Docente - La app para el profesorado" />
+    <meta
+      property="og:description"
+      content="Convocatorias al minuto, cálculo de tiempo de servicio, carpooling escolar y permutas de destino para docentes."
+    />
+    <meta
+      property="og:image"
+      content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/fb/b5/18fbb552-6daa-7490-7af5-ad4a48ce1f2c/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/200x200bb.png"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/fb/b5/18fbb552-6daa-7490-7af5-ad4a48ce1f2c/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/200x200bb.png"
+    />
+
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuración Tailwind adaptada a Info Docente -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              primary: '#020731',
+              secondary: '#3c4a9a',
+              tertiary: '#6e7dff',
+              accent: '#4f5ebd',
+              success: '#b3e8c1',
+              cardbg: '#0f1642',
+            },
+          },
+        },
+      }
+    </script>
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans antialiased selection:bg-tertiary selection:text-white">
+    <!-- Navegación Sticky -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo & Nombre -->
+          <a href="#" class="flex items-center gap-3 group">
+            <img
+              class="w-11 h-11 rounded-xl shadow-md transition-transform group-hover:scale-105"
+              src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/fb/b5/18fbb552-6daa-7490-7af5-ad4a48ce1f2c/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/200x200bb.png"
+              alt="Logo Info Docente"
+            />
+            <div class="flex flex-col">
+              <span class="font-extrabold text-xl text-primary leading-tight">Info Docente</span>
+              <span class="text-xs text-gray-400 font-medium tracking-wide">Plataforma para el Profesorado</span>
             </div>
+          </a>
+
+          <!-- Navegación Escritorio -->
+          <nav class="hidden lg:flex items-center space-x-7">
+            <a href="#features" class="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
+              >Funcionalidades</a
+            >
+            <a href="#convocatorias" class="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
+              >Convocatorias</a
+            >
+            <a href="#coche" class="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
+              >Compartir Coche</a
+            >
+            <a href="#permutas" class="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
+              >Permutas</a
+            >
+            <a href="#vida-laboral" class="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
+              >Vida Laboral</a
+            >
+            <a href="#premium" class="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
+              >Premium</a
+            >
+            <a href="#faq" class="text-gray-600 hover:text-primary font-medium text-sm transition-colors">FAQ</a>
+          </nav>
+
+          <!-- Botón de acción Desktop -->
+          <div class="hidden md:flex items-center gap-4">
+            <a
+              href="#download"
+              class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold text-sm text-white bg-primary hover:bg-secondary transition-all shadow-sm hover:shadow-md"
+            >
+              Descargar App
+            </a>
+          </div>
+
+          <!-- Botón Hamburguesa Móvil -->
+          <div class="flex lg:hidden">
+            <button
+              id="mobile-menu-btn"
+              type="button"
+              class="text-gray-700 hover:text-primary p-2 focus:outline-none"
+              aria-label="Abrir menú"
+            >
+              <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+              <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
+
+      <!-- Menú Móvil Desplegable -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-3 pb-6 space-y-3">
+        <a href="#features" class="block py-2 text-base font-medium text-gray-700 hover:text-primary mobile-link"
+          >Funcionalidades</a
+        >
+        <a href="#convocatorias" class="block py-2 text-base font-medium text-gray-700 hover:text-primary mobile-link"
+          >Convocatorias SIPRI</a
+        >
+        <a href="#coche" class="block py-2 text-base font-medium text-gray-700 hover:text-primary mobile-link"
+          >Compartir Coche</a
+        >
+        <a href="#permutas" class="block py-2 text-base font-medium text-gray-700 hover:text-primary mobile-link"
+          >Permutas</a
+        >
+        <a href="#vida-laboral" class="block py-2 text-base font-medium text-gray-700 hover:text-primary mobile-link"
+          >Vida Laboral</a
+        >
+        <a href="#premium" class="block py-2 text-base font-medium text-gray-700 hover:text-primary mobile-link"
+          >Premium</a
+        >
+        <a href="#faq" class="block py-2 text-base font-medium text-gray-700 hover:text-primary mobile-link"
+          >Preguntas Frecuentes</a
+        >
+        <div class="pt-3 border-t border-gray-100 flex flex-col gap-2">
+          <a
+            href="#download"
+            class="text-center w-full py-3 px-4 rounded-xl font-semibold text-white bg-primary hover:bg-secondary transition-colors mobile-link"
+          >
+            Instalar Info Docente
+          </a>
+        </div>
+      </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative bg-primary overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 lg:pt-32 lg:pb-36">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
-                
-                <!-- Textos e Info -->
-                <div class="lg:col-span-6 text-center lg:text-left text-white z-10 relative">
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
-                        Optimiza tu día a día <span class="text-tertiary">como docente</span>
-                    </h1>
-                    <p class="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed">
-                        Gestiona tu vida laboral, encuentra compañeros para compartir coche, busca permutas y mantente al día con las convocatorias de la Consejería. Todo en una sola app.
-                    </p>
-                    
-                    <div class="flex justify-center lg:justify-start gap-4">
-                        <a href="https://apps.apple.com/es/app/info-docente/id6795630289" target="_blank" class="transition-transform hover:scale-105">
-                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-es?size=250x83&amp;releaseDate=1727740800" alt="Descargar en el App Store" class="h-14 sm:h-16" style="width: 150px;">
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=com.infodocente.app&pcampaignid=web_share" target="_blank" class="transition-transform hover:scale-105">
-                            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/es_badge_web_generic.png" alt="Descargar en Play Store" class="h-14 sm:h-16">
-                        </a>
-                    </div>
-                </div>
+    <section class="relative bg-gradient-to-b from-primary via-[#070e3f] to-primary overflow-hidden text-white">
+      <!-- Luces y efectos de fondo -->
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-tertiary/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute top-1/2 -right-40 w-96 h-96 bg-secondary/30 rounded-full blur-3xl pointer-events-none"></div>
 
-                <!-- Mockup iPhone -->
-                <div class="lg:col-span-6 mt-16 lg:mt-0 relative flex justify-center">
-                    <!-- Efecto de luz detrás del móvil -->
-                    <div class="absolute inset-0 bg-secondary rounded-full blur-3xl opacity-30 transform scale-75"></div>
-                    
-                    <!-- Marco de iPhone (CSS-only para no depender de imágenes externas) -->
-                    <div class="relative z-10 bg-black rounded-[3rem] p-4 shadow-2xl border-4 border-gray-800" style="width: 300px; height: 600px;">
-                        <div class="absolute top-0 inset-x-0 h-6 bg-black rounded-b-3xl mx-auto w-40 z-20"></div> <!-- Notch -->
-                        <!-- Aquí va una captura de pantalla real. Ponemos un placeholder elegante por si falla la imagen -->
-                        <div class="bg-gray-100 w-full h-full rounded-[2rem] overflow-hidden relative">
-                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b2/60/eb/b260eb6c-6470-d13e-354b-a4cb877cea38/Placeholder.mill/400x400bb.webp" alt="Captura Info Docente" class="object-cover w-full h-full absolute inset-0 opacity-40">
-                            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 text-gray-800 bg-white bg-opacity-80 backdrop-blur-sm">
-                                <img class="w-20 h-20 rounded-2xl mb-4 shadow-lg" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/fb/b5/18fbb552-6daa-7490-7af5-ad4a48ce1f2c/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/200x200bb.png">
-                                <h3 class="font-bold text-xl mb-2">Info Docente</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 lg:pt-24 lg:pb-32 relative z-10">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+          <!-- Textos e Info Principal -->
+          <div class="lg:col-span-7 text-center lg:text-left">
+            <!-- Pill destacado -->
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm text-xs sm:text-sm font-medium text-tertiary mb-6"
+            >
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Comunidad activa para docentes e interinos
             </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+              Tu día a día docente,
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-success"
+                >organizado y en un solo lugar</span
+              >
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Sigue convocatorias oficiales al minuto, calcula tu tiempo de servicio real, organiza rutas en coche
+              compartido con otros profesores y encuentra permutas de destino en toda la comunidad.
+            </p>
+
+            <!-- Botones de Descarga Oficiales Alineados -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+              <a
+                href="https://apps.apple.com/es/app/info-docente/id6795630289"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-transform hover:scale-105 focus:outline-none flex items-center h-15 sm:h-16"
+              >
+                <img
+                  src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-es?size=250x83&amp;releaseDate=1727740800"
+                  alt="Descargar en el App Store"
+                  class="h-10 sm:h-11 object-contain"
+                />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.infodocente.app&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-transform hover:scale-105 focus:outline-none flex items-center h-14 sm:h-16"
+              >
+                <img
+                  src="https://play.google.com/intl/en_us/badges/static/images/badges/es_badge_web_generic.png"
+                  alt="Descargar en Google Play"
+                  class="h-14 sm:h-16 object-contain"
+                  style="width: 90%"
+                />
+              </a>
+            </div>
+
+            <!-- Indicadores de confianza -->
+            <div
+              class="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4 border-t border-white/10 text-xs sm:text-sm text-gray-300"
+            >
+              <div class="flex items-center gap-1.5">
+                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span>Actualizaciones en tiempo real</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span>100% Hecho por y para docentes</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span>Acceso nativo iOS & Android</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mockup de la App con Captura Real -->
+          <div class="lg:col-span-5 mt-16 lg:mt-0 flex justify-center">
+            <div class="relative w-[300px] sm:w-[320px]">
+              <!-- Resplandor exterior -->
+              <div
+                class="absolute inset-0 bg-tertiary/25 rounded-[3.2rem] blur-2xl transform -rotate-1 scale-105 pointer-events-none"
+              ></div>
+
+              <!-- Chasis del teléfono estilo iPhone -->
+              <div
+                class="relative z-10 bg-slate-900 p-2.5 sm:p-3 rounded-[3.2rem] shadow-2xl border-4 border-slate-700/80"
+              >
+                <!-- Altavoz / Isla superior -->
+                <div
+                  class="absolute top-4 sm:top-5 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-20"
+                ></div>
+
+                <!-- Contenedor con la Captura Real -->
+                <div class="bg-black rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-inner relative">
+                  <img
+                    src="app-screenshot.png"
+                    alt="Captura de pantalla real de Info Docente"
+                    class="w-full h-auto block select-none object-cover"
+                    loading="eager"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- Forma de ola en el fondo -->
-        <div class="absolute bottom-0 w-full overflow-hidden leading-none rotate-180">
-            <svg class="relative block w-[calc(100%+1.3px)] h-[50px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#f9fafb"></path>
-            </svg>
-        </div>
+      </div>
+
+      <!-- Forma de curva de transición -->
+      <div class="w-full overflow-hidden leading-none">
+        <svg
+          class="relative block w-full h-12 text-gray-50"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          fill="currentColor"
+        >
+          <path d="M0,0 C150,90 350,-40 500,40 C650,120 900,20 1200,60 L1200,120 L0,120 Z"></path>
+        </svg>
+      </div>
     </section>
 
-    <!-- Funcionalidades -->
-    <section id="features" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Todo lo que necesitas en tu bolsillo</h2>
-                <p class="mt-4 text-xl text-gray-600">Diseñada específicamente para facilitar la vida del profesorado.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-10">
-                <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Convocatorias</h3>
-                    <p class="text-gray-600 leading-relaxed">Información actualizada al minuto sobre oposiciones, listas de interinos, bolsas de trabajo y adjudicaciones (especial atención martes y jueves).</p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Permutas y Coche</h3>
-                    <p class="text-gray-600 leading-relaxed">Organiza trayectos compartidos para ahorrar costes y conecta con otros docentes interesados en realizar un intercambio de destino.</p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Alertas Oficiales</h3>
-                    <p class="text-gray-600 leading-relaxed">Información actualizada sobre oposiciones, bolsas de trabajo y comunicados de la Consejería en tiempo real.</p>
-                </div>
-            </div>
+    <!-- Barra de Métricas y Confianza -->
+    <section class="py-10 bg-gray-50 border-b border-gray-200/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="p-4">
+            <p class="text-3xl sm:text-4xl font-extrabold text-primary">SIPRI</p>
+            <p class="text-xs sm:text-sm font-medium text-gray-500 mt-1">Convocatorias y adjudicaciones en directo</p>
+          </div>
+          <div class="p-4">
+            <p class="text-3xl sm:text-4xl font-extrabold text-primary">0 €</p>
+            <p class="text-xs sm:text-sm font-medium text-gray-500 mt-1">Sin comisiones en trayectos compartidos</p>
+          </div>
+          <div class="p-4">
+            <p class="text-3xl sm:text-4xl font-extrabold text-primary">100%</p>
+            <p class="text-xs sm:text-sm font-medium text-gray-500 mt-1">Comunidad verificada de docentes</p>
+          </div>
+          <div class="p-4">
+            <p class="text-3xl sm:text-4xl font-extrabold text-primary">Multi</p>
+            <p class="text-xs sm:text-sm font-medium text-gray-500 mt-1">Disponible en iOS y Android</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-3">
-                <img class="w-8 h-8 rounded-lg" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/fb/b5/18fbb552-6daa-7490-7af5-ad4a48ce1f2c/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/200x200bb.png" alt="Logo Info Docente">
-                <span class="text-white font-semibold">Info Docente</span>
-            </div>
-            
-            <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-                <a href="privacy.html" class="hover:text-white transition-colors">Política de Privacidad</a>
-                <a href="terms.html" class="hover:text-white transition-colors">Términos de Uso</a>
-                <a href="legal.html" class="hover:text-white transition-colors">Aviso Legal</a>
-            </div>
-            
-            <div class="text-sm text-gray-500">
-                &copy; 2026 Francisco Manuel Cazalla Perez. Todos los derechos reservados.
-            </div>
+    <!-- Resumen de Módulos y Funcionalidades -->
+    <section id="features" class="py-20 lg:py-28 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-secondary mb-3">Solución Integral Docente</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+            Todo lo que necesitas para tu curso escolar en tu bolsillo
+          </h3>
+          <p class="mt-4 text-lg text-gray-600">
+            Diseñado desde cero para resolver las necesidades reales de interinos, funcionarios en prácticas y
+            profesorado con destino definitivo.
+          </p>
         </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Card 1: Convocatorias -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-blue-50 text-secondary flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Convocatorias y SIPRI</h4>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              Alertas inmediatas de llamamientos ordinarios y extraordinarios (martes y jueves). Filtra por provincia,
+              especialidad y tipo de puesto (obligatorio o voluntario).
+            </p>
+          </div>
+
+          <!-- Card 2: Compartir Coche -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-indigo-50 text-tertiary flex items-center justify-center mb-6 group-hover:bg-tertiary group-hover:text-white transition-colors"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Compartir Coche (Carpooling)</h4>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              Encuentra u ofrece plaza en trayectos diarios a centros educativos. Ahorra cientos de euros al mes
+              compartiendo gastos de gasolina de manera transparente y directa.
+            </p>
+          </div>
+
+          <!-- Card 3: Permutas -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Permutas de Destino</h4>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              Publica tu plaza asignada y localiza compañeros de tu mismo cuerpo y especialidad que deseen intercambiar
+              centro o provincia para estar más cerca de su hogar.
+            </p>
+          </div>
+
+          <!-- Card 4: Vida Laboral -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Tiempo de Servicio</h4>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              Calcula y registra con precisión tus días trabajados por centro escolar y curso. Imprescindible para el
+              cómputo de baremo, trienios, sexenios y concursos de traslados.
+            </p>
+          </div>
+
+          <!-- Card 5: Calendario Escolar -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Calendario y Festivos</h4>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              Sincronización automática del calendario escolar según la provincia y localidad de tu centro. Consulta
+              días no lectivos, festivos locales y periodos vacacionales.
+            </p>
+          </div>
+
+          <!-- Card 6: Noticias y Normativa -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">Noticias y Consejería</h4>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              Mantente informado de las resoluciones de la Consejería, noticias sindicales, novedades en oposiciones y
+              avisos clave sin perderte en decenas de grupos de mensajería.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive 1: Convocatorias y SIPRI -->
+    <section id="convocatorias" class="py-20 bg-white border-t border-gray-100 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+          <!-- Mockup de Convocatoria -->
+          <div class="lg:col-span-6 mb-12 lg:mb-0">
+            <div class="bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-slate-800">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <div>
+                  <span class="text-xs font-bold text-tertiary uppercase">Llamamiento Oficial</span>
+                  <h4 class="text-lg font-bold">Convocatoria Semanal</h4>
+                </div>
+                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-semibold"
+                  >142 Puestos</span
+                >
+              </div>
+
+              <!-- Filtros simulados -->
+              <div class="grid grid-cols-2 gap-3 mb-6">
+                <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60">
+                  <span class="text-[10px] text-gray-400 block">Especialidad</span>
+                  <span class="text-xs font-semibold text-white">590107 - Informática</span>
+                </div>
+                <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60">
+                  <span class="text-[10px] text-gray-400 block">Tipo de Plaza</span>
+                  <span class="text-xs font-semibold text-white">Voluntaria / Sustitución</span>
+                </div>
+              </div>
+
+              <!-- Puesto de ejemplo -->
+              <div class="bg-slate-800/40 p-4 rounded-xl border border-slate-700 mb-4">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <p class="font-bold text-sm text-white">IES Politécnico Jesús Marín</p>
+                    <p class="text-xs text-gray-400">Málaga (Málaga) · Sustitución</p>
+                  </div>
+                  <span class="text-xs font-bold text-tertiary">Jornada Completa</span>
+                </div>
+                <div class="text-[11px] text-gray-400 flex items-center gap-2">
+                  <span>Cód: 29000123</span>
+                  <span>·</span>
+                  <span>Incorporación inmediata</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Explicación Funcional -->
+          <div class="lg:col-span-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-secondary">Avisos al minuto</span>
+            <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight mt-2 mb-6">
+              No vuelvas a perder un plazo de adjudicación
+            </h3>
+            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+              El sistema SIPRI publica convocatorias los martes y resoluciones los jueves. Con Info Docente no necesitas
+              estar refrescando el portal oficial una y otra vez:
+            </p>
+            <ul class="space-y-4 text-gray-600">
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs"
+                >
+                  &#10003;
+                </div>
+                <span
+                  ><strong>Notificaciones prioritarias:</strong> Recibe el aviso en tu móvil en el instante exacto en
+                  que se publica la convocatoria.</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs"
+                >
+                  &#10003;
+                </div>
+                <span
+                  ><strong>Filtros avanzados:</strong> Localiza al instante los puestos obligatorios y voluntarios de tu
+                  especialidad sin leer PDFs de 300 páginas.</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs"
+                >
+                  &#10003;
+                </div>
+                <span
+                  ><strong>Gestión de tu situación activa:</strong> Cambia de estado en un toque ("He sido adjudicado" o
+                  "He cesado") para adaptar la app a tu situación laboral actual.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive 2: Compartir Coche (Carpooling) -->
+    <section id="coche" class="py-20 bg-gray-50 border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+          <!-- Textos -->
+          <div class="lg:col-span-6 order-2 lg:order-1">
+            <span class="text-xs font-bold uppercase tracking-widest text-tertiary">Carpooling Escolar</span>
+            <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight mt-2 mb-6">
+              Viaja en compañía y ahorra cientos de euros en gasolina
+            </h3>
+            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+              Miles de docentes recorren a diario decenas de kilómetros entre municipios para llegar a su colegio o
+              instituto. Info Docente conecta a profesores que comparten la misma ruta:
+            </p>
+            <ul class="space-y-4 text-gray-600">
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs"
+                >
+                  &#10003;
+                </div>
+                <span
+                  ><strong>Horarios lectivos coordinados:</strong> Rutas pensadas exclusivamente para los horarios de
+                  entrada (8:00/8:30) y salida (14:30/15:00) de los centros.</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs"
+                >
+                  &#10003;
+                </div>
+                <span
+                  ><strong>Conductor o Pasajero:</strong> Publica tu coche para ofrecer plazas o solicita unirte al
+                  vehículo de otros compañeros de la zona.</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs"
+                >
+                  &#10003;
+                </div>
+                <span
+                  ><strong>Sin comisiones de intermediarios:</strong> Contacto directo y seguro entre docentes
+                  verificados sin cobros abusivos de aplicaciones genéricas.</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Visual Mockup Ruta -->
+          <div class="lg:col-span-6 order-1 lg:order-2 mb-12 lg:mb-0">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100">
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-bold uppercase tracking-wider text-secondary">Ruta Activa</span>
+                <span class="px-2.5 py-1 bg-blue-50 text-secondary text-xs rounded-full font-bold">L-V Diario</span>
+              </div>
+
+              <!-- Trayecto visual -->
+              <div class="space-y-4 relative pl-6 border-l-2 border-dashed border-gray-200 ml-3 mb-6">
+                <div class="relative">
+                  <span
+                    class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-secondary border-2 border-white"
+                  ></span>
+                  <p class="text-xs text-gray-400">Origen (07:30h)</p>
+                  <p class="font-bold text-gray-900 text-sm">Sevilla Capital (San Bernardo)</p>
+                </div>
+                <div class="relative">
+                  <span
+                    class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-tertiary border-2 border-white"
+                  ></span>
+                  <p class="text-xs text-gray-400">Parada Intermedia</p>
+                  <p class="font-semibold text-gray-700 text-sm">Alcalá de Guadaíra</p>
+                </div>
+                <div class="relative">
+                  <span
+                    class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white"
+                  ></span>
+                  <p class="text-xs text-gray-400">Destino (08:15h)</p>
+                  <p class="font-bold text-gray-900 text-sm">IES Virgen de Valme (Dos Hermanas)</p>
+                </div>
+              </div>
+
+              <!-- Participantes -->
+              <div class="bg-gray-50 p-4 rounded-2xl flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-sm"
+                  >
+                    MC
+                  </div>
+                  <div>
+                    <p class="font-bold text-sm text-gray-900">Manuel (Conductor)</p>
+                    <p class="text-xs text-gray-500">2 plazas ocupadas · 2 disponibles</p>
+                  </div>
+                </div>
+                <span class="px-3 py-1.5 rounded-xl bg-primary text-white font-semibold text-xs">Solicitar Plaza</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive 3: Permutas y Vida Laboral -->
+    <section id="permutas" class="py-20 bg-white border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+          <!-- Mockup Permuta -->
+          <div class="lg:col-span-6 mb-12 lg:mb-0">
+            <div
+              class="bg-gradient-to-br from-slate-900 to-primary p-6 sm:p-8 rounded-3xl text-white shadow-xl border border-slate-800"
+            >
+              <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                    ></path>
+                  </svg>
+                  <span class="font-bold text-sm">Permuta Disponible</span>
+                </div>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-tertiary/20 text-tertiary font-semibold"
+                  >Secundaria</span
+                >
+              </div>
+
+              <div class="bg-white/5 rounded-2xl p-4 border border-white/10 mb-4">
+                <p class="text-xs text-gray-400 mb-1">Destino Actual Asignado</p>
+                <p class="font-bold text-base text-white">IES Sierra de Aracena (Huelva)</p>
+                <p class="text-xs text-tertiary mt-1">Especialidad: Lengua Castellana y Literatura</p>
+              </div>
+
+              <div class="flex justify-center -my-2 relative z-10">
+                <span
+                  class="w-8 h-8 rounded-full bg-tertiary text-white flex items-center justify-center shadow-lg font-bold text-xs"
+                  >&darr;</span
+                >
+              </div>
+
+              <div class="bg-white/5 rounded-2xl p-4 border border-white/10 mt-2 mb-6">
+                <p class="text-xs text-gray-400 mb-1">Destinos Deseados en Permuta</p>
+                <p class="font-bold text-base text-emerald-300">Sevilla Capital, Aljarafe o Cádiz Norte</p>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-gray-300">
+                <span>Publicado por docente en activo</span>
+                <span class="font-bold text-tertiary hover:underline cursor-pointer">Enviar Solicitud de Contacto</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Textos Permutas & Vida Laboral -->
+          <div class="lg:col-span-6" id="vida-laboral">
+            <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">Movilidad y Reconocimiento</span>
+            <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight mt-2 mb-6">
+              Permutas ágiles y tu tiempo de servicio bajo control
+            </h3>
+            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+              Gestiona los dos aspectos más críticos de tu carrera docente: acercarte a los tuyos y llevar un cómputo
+              transparente de tus días trabajados.
+            </p>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div
+                  class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg shrink-0"
+                >
+                  1
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900 text-base mb-1">Intercambio de Destino Seguro</h4>
+                  <p class="text-gray-600 text-sm">
+                    Publica tu centro asignado y busca compañeros dispuestos a intercambiar destino dentro del marco
+                    legal permitido.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div
+                  class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg shrink-0"
+                >
+                  2
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900 text-base mb-1">Cálculo Preciso de Vida Laboral</h4>
+                  <p class="text-gray-600 text-sm">
+                    Desglose exacto de años, meses y días por cada nombramiento y centro, ideal para baremos de
+                    oposiciones y reconocimiento de trienios.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div
+                  class="w-10 h-10 rounded-xl bg-blue-50 text-secondary flex items-center justify-center font-bold text-lg shrink-0"
+                >
+                  3
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900 text-base mb-1">Directorio de Centros Educativos</h4>
+                  <p class="text-gray-600 text-sm">
+                    Información detallada de colegios e institutos: código de centro, localidad, provincia y contacto.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparativa: Info Docente vs Métodos Tradicionales -->
+    <section class="py-20 bg-gray-50 border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-secondary mb-3">¿Por qué Info Docente?</h2>
+          <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">Olvida el caos de los métodos dispersos</h3>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Sin Info Docente -->
+          <div class="bg-white p-8 rounded-2xl border border-red-100 shadow-sm">
+            <div class="flex items-center gap-3 mb-6">
+              <span
+                class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-base"
+                >&times;</span
+              >
+              <h4 class="font-bold text-xl text-gray-900">Canales Tradicionales</h4>
+            </div>
+            <ul class="space-y-4 text-sm text-gray-600">
+              <li class="flex items-start gap-2.5">
+                <span class="text-red-500 font-bold">&bull;</span>
+                <span>Grupos de WhatsApp con miles de mensajes diarios y spam continuo.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-red-500 font-bold">&bull;</span>
+                <span>PDFs farragosos de la Consejería que no se leen bien en el móvil.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-red-500 font-bold">&bull;</span>
+                <span>Publicaciones de coche y permutas perdidas en foros sin filtros ni orden.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-red-500 font-bold">&bull;</span>
+                <span>Cálculo manual de días de tiempo de servicio con riesgo de error.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Con Info Docente -->
+          <div class="bg-primary text-white p-8 rounded-2xl shadow-xl border border-secondary">
+            <div class="flex items-center gap-3 mb-6">
+              <span
+                class="w-8 h-8 rounded-full bg-emerald-400 text-primary flex items-center justify-center font-bold text-base"
+                >&#10003;</span
+              >
+              <h4 class="font-bold text-xl text-white">Con Info Docente</h4>
+            </div>
+            <ul class="space-y-4 text-sm text-gray-200">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold">&bull;</span>
+                <span>Notificaciones automáticas en el móvil solo de lo que realmente te interesa.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold">&bull;</span>
+                <span>Filtros instantáneos por especialidad, cuerpo y provincias deseadas.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold">&bull;</span>
+                <span>Rutas de carpooling escolar con compañeros docentes y sin intermediarios.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold">&bull;</span>
+                <span>Historial unificado de tiempo de servicio siempre accesible.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- InfoDocente Premium -->
+    <section id="premium" class="py-20 bg-white border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="max-w-4xl mx-auto bg-gradient-to-br from-primary via-[#0d164d] to-secondary rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden"
+        >
+          <div
+            class="absolute -right-20 -bottom-20 w-80 h-80 bg-tertiary/20 rounded-full blur-3xl pointer-events-none"
+          ></div>
+
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-tertiary text-xs font-semibold mb-4 border border-white/10"
+            >
+              ★ Experiencia Ampliada
+            </span>
+            <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">InfoDocente Premium</h3>
+            <p class="text-gray-300 text-base leading-relaxed">
+              Desbloquea el máximo potencial de la aplicación, elimina cualquier distracción y apoya el mantenimiento de
+              los servidores independientes de la plataforma.
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10 text-sm">
+            <div class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-400/20 text-emerald-300 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5"
+              >
+                &#10003;
+              </div>
+              <div>
+                <p class="font-bold text-white">Paradas Ilimitadas</p>
+                <p class="text-gray-300 text-xs mt-0.5">Añade paradas intermedias a tus rutas de coche compartido.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-400/20 text-emerald-300 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5"
+              >
+                &#10003;
+              </div>
+              <div>
+                <p class="font-bold text-white">Permutas Simultáneas</p>
+                <p class="text-gray-300 text-xs mt-0.5">
+                  Publica múltiples destinos y elimina el límite de solicitudes por curso.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-400/20 text-emerald-300 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5"
+              >
+                &#10003;
+              </div>
+              <div>
+                <p class="font-bold text-white">Filtros Avanzados</p>
+                <p class="text-gray-300 text-xs mt-0.5">Búsquedas cruzadas y ubicaciones exactas en convocatorias.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-400/20 text-emerald-300 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5"
+              >
+                &#10003;
+              </div>
+              <div>
+                <p class="font-bold text-white">Sin Anuncios</p>
+                <p class="text-gray-300 text-xs mt-0.5">
+                  Experiencia 100% limpia, rápida y sin ninguna interrupción publicitaria.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <a
+              href="#download"
+              class="inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-bold text-primary bg-white hover:bg-gray-100 transition-all shadow-md"
+            >
+              Descargar y Probar en la App
+            </a>
+            <p class="text-[11px] text-gray-400 mt-3">
+              Todas las funciones básicas continúan siendo gratuitas para todo el profesorado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas Frecuentes (FAQ Acordeón) -->
+    <section id="faq" class="py-20 bg-gray-50 border-t border-gray-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-secondary mb-3">Respuestas Claras</h2>
+          <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight">Preguntas Frecuentes</h3>
+        </div>
+
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <div class="bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-xs">
+            <button
+              type="button"
+              class="faq-toggle w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center hover:bg-gray-50 focus:outline-none"
+            >
+              <span>¿Es Info Docente una aplicación gratuita?</span>
+              <span class="faq-icon text-xl text-gray-400 font-light">+</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3"
+            >
+              Sí, la aplicación se puede descargar y utilizar de manera gratuita. Las funcionalidades clave como la
+              consulta de convocatorias, búsqueda de rutas y cálculo de tiempo de servicio están abiertas para todos los
+              docentes. Existe un plan Premium opcional para eliminar publicidad y habilitar opciones avanzadas.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-xs">
+            <button
+              type="button"
+              class="faq-toggle w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center hover:bg-gray-50 focus:outline-none"
+            >
+              <span>¿Para qué comunidades autónomas está disponible?</span>
+              <span class="faq-icon text-xl text-gray-400 font-light">+</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3"
+            >
+              Actualmente el sistema de convocatorias al minuto está optimizado para Andalucía (SIPRI y bolsas de la
+              Consejería de Desarrollo Educativo). Las secciones de compartir coche docente, permutas de destino y
+              cálculo de tiempo de servicio están preparadas para docentes de todo el territorio nacional.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-xs">
+            <button
+              type="button"
+              class="faq-toggle w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center hover:bg-gray-50 focus:outline-none"
+            >
+              <span>¿Cómo funciona el sistema de avisos de convocatorias?</span>
+              <span class="faq-icon text-xl text-gray-400 font-light">+</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3"
+            >
+              Nuestros sistemas monitorean activamente las publicaciones oficiales. En el momento en que se emite una
+              convocatoria o resolución, recibirás una notificación push en tu teléfono para que puedas revisar las
+              plazas y plazos antes que nadie.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-xs">
+            <button
+              type="button"
+              class="faq-toggle w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center hover:bg-gray-50 focus:outline-none"
+            >
+              <span>¿Cómo se garantiza la seguridad en los viajes compartidos?</span>
+              <span class="faq-icon text-xl text-gray-400 font-light">+</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3"
+            >
+              La comunidad está compuesta exclusivamente por docentes. Las solicitudes de unión a viajes son revisadas y
+              aprobadas directamente por el titular de la ruta, asegurando un entorno de confianza mutua camino al
+              centro educativo.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-xs">
+            <button
+              type="button"
+              class="faq-toggle w-full px-6 py-4 text-left font-bold text-gray-900 flex justify-between items-center hover:bg-gray-50 focus:outline-none"
+            >
+              <span>¿Están mis datos personales protegidos?</span>
+              <span class="faq-icon text-xl text-gray-400 font-light">+</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3"
+            >
+              Por completo. Cumplimos de manera rigurosa con el RGPD y la normativa española de protección de datos. Tus
+              credenciales se almacenan con encriptación segura y nunca comercializamos ni cedemos información personal
+              a terceros.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Descarga Final (CTA) -->
+    <section id="download" class="py-20 bg-primary text-white text-center relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary opacity-90 pointer-events-none"
+      ></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <img
+          class="w-20 h-20 rounded-3xl mx-auto mb-6 shadow-2xl border-2 border-white/20"
+          src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/fb/b5/18fbb552-6daa-7490-7af5-ad4a48ce1f2c/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/200x200bb.png"
+          alt="App Icon"
+        />
+
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          Empieza a optimizar tu curso docente hoy mismo
+        </h2>
+        <p class="text-base sm:text-lg text-gray-300 max-w-xl mx-auto mb-10 leading-relaxed">
+          Descarga Info Docente de forma gratuita en tu móvil y forma parte de la red de profesorado más activa.
+        </p>
+
+        <!-- Botones de Descarga Oficiales Alineados -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="https://apps.apple.com/es/app/info-docente/id6795630289"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="transition-transform hover:scale-105 focus:outline-none flex items-center h-14 sm:h-16"
+          >
+            <img
+              src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-es?size=250x83&amp;releaseDate=1727740800"
+              alt="Descargar en el App Store"
+              class="h-10 sm:h-11 object-contain"
+            />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.infodocente.app&pcampaignid=web_share"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="transition-transform hover:scale-105 focus:outline-none flex items-center h-14 sm:h-16"
+          >
+            <img
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/es_badge_web_generic.png"
+              alt="Descargar en Google Play"
+              class="h-14 sm:h-16 object-contain"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Completo -->
+    <footer class="bg-slate-950 py-14 text-gray-400 border-t border-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 pb-10 border-b border-slate-900">
+          <!-- Identidad Footer -->
+          <div class="flex items-center gap-3">
+            <img
+              class="w-10 h-10 rounded-xl"
+              src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/fb/b5/18fbb552-6daa-7490-7af5-ad4a48ce1f2c/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/200x200bb.png"
+              alt="Logo Info Docente"
+            />
+            <div>
+              <span class="text-white font-bold text-lg block leading-tight">Info Docente</span>
+              <span class="text-xs text-gray-400">La aplicación para el profesorado</span>
+            </div>
+          </div>
+
+          <!-- Enlaces Rápidos -->
+          <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+            <a href="#features" class="hover:text-white transition-colors">Funcionalidades</a>
+            <a href="#convocatorias" class="hover:text-white transition-colors">Convocatorias</a>
+            <a href="#coche" class="hover:text-white transition-colors">Compartir Coche</a>
+            <a href="#permutas" class="hover:text-white transition-colors">Permutas</a>
+            <a href="#vida-laboral" class="hover:text-white transition-colors">Vida Laboral</a>
+            <a href="#premium" class="hover:text-white transition-colors">Premium</a>
+            <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+          </div>
+        </div>
+
+        <!-- Enlaces Legales & Copyright -->
+        <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+          <div class="flex flex-wrap justify-center gap-6">
+            <a href="privacy.html" class="hover:text-white transition-colors">Política de Privacidad</a>
+            <a href="terms.html" class="hover:text-white transition-colors">Términos de Uso</a>
+            <a href="legal.html" class="hover:text-white transition-colors">Aviso Legal</a>
+          </div>
+          <div class="text-center md:text-right text-gray-400">
+            &copy; 2026 Francisco Manuel Cazalla Perez. Todos los derechos reservados.
+          </div>
+        </div>
+      </div>
     </footer>
 
-</body>
+    <!-- Script de interacción ligero (Menú Móvil + Acordeón FAQ) -->
+    <script>
+      // Control de menú móvil
+      const menuBtn = document.getElementById('mobile-menu-btn')
+      const mobileMenu = document.getElementById('mobile-menu')
+      const iconOpen = document.getElementById('menu-icon-open')
+      const iconClose = document.getElementById('menu-icon-close')
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.toggle('hidden')
+          iconOpen.classList.toggle('hidden', !isHidden)
+          iconClose.classList.toggle('hidden', isHidden)
+        })
+
+        // Cerrar menú al pulsar un enlace
+        document.querySelectorAll('.mobile-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden')
+            iconOpen.classList.remove('hidden')
+            iconClose.classList.add('hidden')
+          })
+        })
+      }
+
+      // Acordeón interactivo de Preguntas Frecuentes
+      document.querySelectorAll('.faq-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling
+          const icon = button.querySelector('.faq-icon')
+          const isExpanded = !content.classList.contains('hidden')
+
+          // Cerrar todos los acordeones abiertos
+          document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'))
+          document.querySelectorAll('.faq-icon').forEach(i => (i.textContent = '+'))
+
+          // Si no estaba abierto, abrir el seleccionado
+          if (!isExpanded) {
+            content.classList.remove('hidden')
+            icon.textContent = '−'
+          }
+        })
+      })
+    </script>
+  </body>
 </html>
