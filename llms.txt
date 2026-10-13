@@ -1,0 +1,26 @@
+# Info Docente
+
+> La plataforma integral diseñada por y para docentes, profesores e interinos de Andalucía y España.
+
+Info Docente (`com.infodocente.app`) es una aplicación móvil nativa (iOS y Android) y plataforma de servicios creada específicamente para resolver las necesidades laborales y logísticas del profesorado. Centraliza el seguimiento de convocatorias de bolsas y sustituciones (SIPRI), la organización de trayectos escolares en coche compartido, la gestión de permutas de destino y el cómputo exacto de tiempo de servicio y vida laboral.
+
+## Funcionalidades Clave
+
+- **Convocatorias SIPRI y Bolsas en Directo**: Notificaciones inmediatas de llamamientos y adjudicaciones de sustituciones y vacantes de la Consejería de Desarrollo Educativo (martes y jueves). Incluye filtros avanzados por especialidad, cuerpo docente y tipo de plaza (obligatoria o voluntaria).
+- **Compartir Coche (Carpooling Docente)**: Conexión directa entre docentes para compartir trayectos diarios a colegios e institutos sin comisiones de intermediarios. Rutas con paradas intermedias, roles de conductor y pasajero, adaptadas a los horarios lectivos escolares (8:00 a 15:00).
+- **Permutas de Destino (Swaps)**: Publicación y búsqueda de intercambios de destino provisional o definitivo entre docentes del mismo cuerpo y especialidad que desean acercarse a su domicilio habitual.
+- **Vida Laboral y Tiempo de Servicio**: Cómputo exacto y desglose de días trabajados por centro escolar y curso académico. Información imprescindible para el baremo de oposiciones, trienios, sexenios y concursos de traslados.
+- **Calendario Escolar y Festivos**: Calendario oficial sincronizado según la provincia y municipio del centro educativo asignado, indicando festivos locales y días no lectivos.
+- **InfoDocente Premium**: Modalidad de suscripción que ofrece paradas intermedias ilimitadas en viajes compartidos, solicitudes y publicaciones simultáneas ilimitadas de permutas, filtros avanzados en convocatorias y una experiencia limpia sin publicidad.
+
+## Enlaces Oficiales y Descarga de la Aplicación
+
+- [Sitio Web Principal](https://fcazalladev.github.io/infodocente/): Landing page informativa y acceso general.
+- [App Store (iOS)](https://apps.apple.com/es/app/info-docente/id6795630289): Descarga oficial para iPhone y iPad.
+- [Google Play Store (Android)](https://play.google.com/store/apps/details?id=com.infodocente.app&pcampaignid=web_share): Descarga oficial para dispositivos Android.
+
+## Información Legal y Protección de Datos
+
+- [Política de Privacidad](https://fcazalladev.github.io/infodocente/privacy.html): Cumplimiento estricto del RGPD (Reglamento General de Protección de Datos) y la LOPDGDD.
+- [Términos y Condiciones de Uso](https://fcazalladev.github.io/infodocente/terms.html): Condiciones de uso de la plataforma y de los servicios comunitarios.
+- [Aviso Legal](https://fcazalladev.github.io/infodocente/legal.html): Datos identificativos y propiedad de la plataforma.
